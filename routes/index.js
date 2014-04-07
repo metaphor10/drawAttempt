@@ -37,3 +37,6 @@ exports.list = function (req, res) {
 		title: 'All Flights', 
 		flights: flights});
 };
+exports.draw=function(req, res){
+	res.render('draw',{});
+};

@@ -9,6 +9,7 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+var counterOfViewers=0;
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -33,12 +34,36 @@ if ('development' == app.get('env')) {
 app.get('/flight/:number', routes.flight);
 app.put('/flight/:number/arrived', routes.arrived);
 app.get('/list', routes.list);
+app.get('/',routes.draw);
 
 var server=http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 var io = require('socket.io').listen(server);
-io.sockets.on('connection', function (socket) {
-    console.log('A new user connected!');
+/*io.sockets.on('connection', function (socket) {
+    console.log('A new user connected!'+counterOfViewers);
+    counterOfViewers++;
     socket.emit('info', { msg: 'The world is round, there is no up or down.' });
+});*/
+// A user connects to the server (opens a socket)
+io.sockets.on('connection', function (socket) {
+
+    // (2): The server recieves a ping event
+    // from the browser on this socket
+    socket.on('ping', function ( data ) {
+  
+    console.log('socket: server recieves ping (2)');
+
+    // (3): Return a pong event to the browser
+    // echoing back the data from the ping event 
+    io.sockets.emit( 'pong', data );   
+
+    console.log('socket: server sends pong (3)');
+
+    });
+    socket.on( 'drawCircle', function( data, session ) {
+    //console.log(data)
+    socket.broadcast.emit( 'drawCircle', data );
 });
+});
+
