@@ -6,6 +6,38 @@ body
 		.container-fluid
 			.navbar-header
 				button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+					span.sr-only Toggle navigation
+					span.icon-br
+					span.icon-br
+					span.icon-br
+				a.navbar-brand(href="#") Project name
+			.navbar-collapse.collapse
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href="#") Dashboard
+					li
+						a(href="#") Settings
+					li
+						a(href="#") Profile
+					li
+						a(href="#") Help
+				form.navbar-form.navbar-right
+					input.form-control(placeholder="Search..." type="text")
+	.container-fluid
+		.row
+			.col-sm-3.col-md-2.sidebar
+				ul.nav.nav-sidbar
+					li.active
+						a.btn.btn-lg.btn-success(href="#", role="button") Lookup Table
+					li
+						a(href="#") And
+					li
+						a(href="#") Not
+			.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+				canvas(id="draw", resize="true")
 
-
+script(type="text/paperscript", src="/javascript/draw.js", canvas="draw")
+script(type='text/javascript', src="/socket.io/socket.io.js")
+script(type='text/javascript', src="/javascript/client.js")
+script(src="/javascript/paper.js")
 script(type='text/javascript', src="/javascript/jquery-2.1.0.min.js")
