@@ -40,3 +40,6 @@ exports.list = function (req, res) {
 exports.draw=function(req, res){
 	res.render('draw',{});
 };
+exports.main1=function(req, res){
+	res.render('drawpage',{});
+};
