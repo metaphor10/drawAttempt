@@ -43,3 +43,6 @@ exports.draw=function(req, res){
 exports.main1=function(req, res){
 	res.render('drawpage',{});
 };
+exports.britelite=function(req, res){
+	res.render('britelie',{});
+};
