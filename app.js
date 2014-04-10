@@ -45,6 +45,7 @@ app.put('/flight/:number/arrived', routes.arrived);
 app.get('/list', routes.list);
 app.get('/',routes.main1);
 app.get('/britelite',routes.britelite);
+app.get('/sim',routes.sim);
 
 var server=http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

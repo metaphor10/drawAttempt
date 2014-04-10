@@ -28,6 +28,9 @@ function onMouseDrag(event) {
     // to a special function for later
     emitCircle( x, y, radius, color );
 } 
+function onMouseDown(event){
+    console.log("mouse down");
+}
  
 function drawCircle( x, y, radius, color ) {
     // Render the circle with Paper.js

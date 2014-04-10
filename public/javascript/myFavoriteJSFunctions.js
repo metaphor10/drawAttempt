@@ -91,7 +91,7 @@ function forEach(array, action) {
   for (var i = 0; i < array.length; i++)
     action(array[i]);
 }
-var output = dom("DIV", {id: "printOutput"}, ""); 
+/*var output = dom("DIV", {id: "printOutput"}, ""); 
 document.body.appendChild(output);
 function print() { 
 	var result = []; 
@@ -100,7 +100,7 @@ function print() {
 		}); 
 		output.appendChild( dom("PRE", null, result.join(""))); 
 		
-}
+}*/
 
 function forEachIn(object, action) {
   for (var property in object) {

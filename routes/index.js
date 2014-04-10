@@ -46,3 +46,6 @@ exports.main1=function(req, res){
 exports.britelite=function(req, res){
 	res.render('britelie',{});
 };
+exports.sim=function(req, res){
+	res.render('sim',{});
+};
